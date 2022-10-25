@@ -73,6 +73,7 @@ console.log(myModule);
 
 const express = require("express");
 const { response } = require("express");
+const { request } = require("http");
 const app = express();
 
 //when the user navigates to url in the browser it known as get request
@@ -92,3 +93,10 @@ app.get('/',(request,response)=>{
 })
 
 app.listen(process.env.Port || 3000, ()=> console.log(" App is Available now on http://localhost:3000 !!!"))
+
+
+//you can also read files by request and response
+app.get('/',async (request,response)=>{
+  response.send(await readFilePromises("./hello.txt", "utf8"))
+})
+
