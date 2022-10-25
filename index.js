@@ -57,3 +57,5 @@ async function hello() {
 //import module
 const myModule=require('./module')
 console.log(myModule)
+
+//npm init -y  -- to install default package module
