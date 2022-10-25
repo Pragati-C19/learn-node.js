@@ -83,20 +83,27 @@ app.get("/foo/bar");
 //second argument here is our callback function you can think of every request to this url as an event and then you handle that event with this function and express gives us two parameters to make use of the request and the response the request is the incoming data from the user
 //request you incoming data
 //response your incomming data
-app.get('/',(request,response)=>{
-  readFile('./index.html', 'utf8', (err,html)=>{
-    if(err){
-      response.status(500).send('Sorry, Out of Order')
+app.get("/", (request, response) => {
+  readFile("./index.html", "utf8", (err, html) => {
+    if (err) {
+      response.status(500).send("Sorry, Out of Order");
     }
-    response.send(html)
-  })
-})
+    response.send(html);
+  });
+});
 
-app.listen(process.env.Port || 3000, ()=> console.log(" App is Available now on http://localhost:3000 !!!"))
-
+app.listen(process.env.Port || 3000, () =>
+  console.log(" App is Available now on http://localhost:3000 !!!")
+);
 
 //you can also read files by request and response
-app.get('/',async (request,response)=>{
-  response.send(await readFilePromises("./hello.txt", "utf8"))
-})
+app.get("/", async (request, response) => {
+  response.send(await readFilePromises("./hello.txt", "utf8"));
+});
 
+/* 
+  
+  To deploy the app on google cloud first you need google could platform account and and also the google cloud command line tools installed on your local system 
+  Create a file name app.yaml
+
+*/
