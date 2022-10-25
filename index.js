@@ -59,3 +59,5 @@ const myModule=require('./module')
 console.log(myModule)
 
 //npm init -y  -- to install default package module
+//npm install express  -- install express 
+

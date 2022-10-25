@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Pragati-C19/node-js/issues"
   },
-  "homepage": "https://github.com/Pragati-C19/node-js#readme"
+  "homepage": "https://github.com/Pragati-C19/node-js#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
