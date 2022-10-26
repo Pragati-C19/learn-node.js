@@ -107,3 +107,14 @@ app.get("/", async (request, response) => {
   Create a file name app.yaml
 
 */
+
+// Small and large number
+const amount = 12
+if(amount>10){
+  console.log("large number")
+}
+else{
+  console.log("Small number")
+}
+
+console.log("It's my Code")
