@@ -2,7 +2,7 @@
 
 console.log("Hellooooo Gomuu 💝");
 
-//globally call any variable
+//globally call any variable anywhere you can access them in application
 console.log(global.luckyNum);
 global.luckyNum = 19;
 console.log(global.luckyNum);
@@ -92,9 +92,14 @@ app.get("/", (request, response) => {
   });
 });
 
+/*
+This will open the local host in browser
+
 app.listen(process.env.Port || 3000, () =>
   console.log(" App is Available now on http://localhost:3000 !!!")
-);
+); 
+
+*/
 
 //you can also read files by request and response
 app.get("/", async (request, response) => {
@@ -109,12 +114,26 @@ app.get("/", async (request, response) => {
 */
 
 // Small and large number
-const amount = 12
-if(amount>10){
-  console.log("large number")
-}
-else{
-  console.log("Small number")
+const amount = 12;
+if (amount > 10) {
+  console.log("large number");
+} else {
+  console.log("Small number");
 }
 
-console.log("It's my Code")
+console.log("It's my Code");
+
+//Globals - No Window
+//_dirname -- path to current directory
+//_filename --file naem
+// require -- function to use modules (commonJs)
+// modules -- info about current module (files)
+//process -- info about env where the program is being executed
+
+console.log(__dirname);
+console.log(__filename);
+setInterval(() => {
+  console.log("Hello Buddies!!!");
+}, 1000);
+
+
