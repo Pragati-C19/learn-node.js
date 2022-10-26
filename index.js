@@ -132,8 +132,20 @@ console.log("It's my Code");
 
 console.log(__dirname);
 console.log(__filename);
+/* 
+
 setInterval(() => {
   console.log("Hello Buddies!!!");
 }, 1000);
 
+*/
 
+//Modules - Escapsulated Code (only share minimum)
+//In Common JS, Every file is module by default
+const names =require("./name")
+const sayHi=require("./sayhi-function")
+console.log(names)
+
+sayHi("Susan");
+sayHi(names.john);
+sayHi(names.peter)
