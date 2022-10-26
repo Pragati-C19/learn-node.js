@@ -197,7 +197,7 @@ const absolute = path.resolve(
 );
 console.log(absolute);
 
-//FS Module
+//FS Module (Sync)
 //readFileSync is already declare above
 const { writeFileSync } = require("fs");
 
@@ -209,5 +209,39 @@ console.log(second);
 
 writeFileSync(
   "./content/result-sync.txt",
-  `Here is the result of : ${first}, ${second}`,{flag:'a'}, {flag:'b'}
+  `Here is the result of : ${first}, ${second}`,
+  { flag: "a" },
+  { flag: "b" }
 );
+
+//FS module (Async)
+//readFile is already Declared
+const { writeFile } = require("fs");
+
+readFile("./content/first.txt", "utf8", (err, result) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(result, "FIRST");
+  const first = result;
+  readFile("./content/second.txt", "utf8", (err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(result, "SECOND");
+    const second = result;
+    writeFile(
+      "./content/result-async.txt",
+      `Here is the result of Async File : ${first}, ${second}`,
+    (err, result)=>{
+      if(err){
+        console.log(err)
+        return
+      }
+      console.log(result)  //undefined
+    }
+      );
+  });
+});
