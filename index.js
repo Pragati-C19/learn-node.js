@@ -145,6 +145,8 @@ setInterval(() => {
 const names =require("./name")
 const sayHi=require("./sayhi-function")
 const data=require("./alternative-syntax")
+require("./mind-grenade")
+
 
 console.log(names)
 console.log(data)
