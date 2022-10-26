@@ -142,55 +142,72 @@ setInterval(() => {
 
 //Modules - Escapsulated Code (only share minimum)
 //In Common JS, Every file is module by default
-const names =require("./name")
-const sayHi=require("./sayhi-function")
-const data=require("./alternative-syntax")
-require("./mind-grenade")
+const names = require("./name");
+const sayHi = require("./sayhi-function");
+const data = require("./alternative-syntax");
+require("./mind-grenade");
 
-console.log(names)
-console.log(data)
-console.log(data.singlePerson)
-console.log(data.items)
+console.log(names);
+console.log(data);
+console.log(data.singlePerson);
+console.log(data.items);
 
 sayHi("Susan");
 sayHi(names.john);
-sayHi(names.peter)
+sayHi(names.peter);
 
 //Build-In Modules
 // 1. OS
 
-const os = require('os')
+const os = require("os");
 //info about current user
-const user = os.userInfo()
-console.log(user)
+const user = os.userInfo();
+console.log(user);
 
 //method returns the system uptime in seconds
 //Uptime is a command that returns information about how long your system has been running together with the current time
-console.log(`The system Uptime is ${os.uptime()} seconds`)
+console.log(`The system Uptime is ${os.uptime()} seconds`);
 
-const currentOS={
-  name : os.type(),
-  release : os.release(),
-  totalMemory : os.totalmem(),
+const currentOS = {
+  name: os.type(),
+  release: os.release(),
+  totalMemory: os.totalmem(),
   freeMemory: os.freemem(),
-}
+};
 
-console.log(currentOS)
+console.log(currentOS);
 
 // 2. Path Module
-const path = require('path')
-console.log(path.sep)
+const path = require("path");
+console.log(path.sep);
 
-const filePath = path.join("content","subfolder","test-path.txt")
-console.log(filePath)
+const filePath = path.join("content", "subfolder", "test-path.txt");
+console.log(filePath);
 
 //It will show you last file of the path
-const base = path.basename(filePath)
-console.log(base)
+const base = path.basename(filePath);
+console.log(base);
 
-//It will give you full path from drive to last file 
-const absolute = path.resolve(__dirname, 'content', 'subfolder', 'test-path.txt')
+//It will give you full path from drive to last file
+const absolute = path.resolve(
+  __dirname,
+  "content",
+  "subfolder",
+  "test-path.txt"
+);
 console.log(absolute);
 
-//
+//FS Module
+//readFileSync is already declare above
+const { writeFileSync } = require("fs");
 
+const first = readFileSync("./content/first.txt", "utf8");
+const second = readFileSync("./content/second.txt", "utf8");
+
+console.log(first);
+console.log(second);
+
+writeFileSync(
+  "./content/result-sync.txt",
+  `Here is the result of : ${first}, ${second}`,{flag:'a'}, {flag:'b'}
+);
