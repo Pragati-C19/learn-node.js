@@ -64,4 +64,4 @@ const people = [
   },
 ];
 
-module.exports=(products,people)
+module.exports={products, people}
